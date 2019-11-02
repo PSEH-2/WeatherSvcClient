@@ -11,12 +11,15 @@ public class WeatherAnalyzer {
 	{
 		List<com.world.weather.entity.List> list = wData.getList();
 		for (com.world.weather.entity.List l : list) {
+			
+			if (l.getMain().getTempMax() >= 287)
+				return "Use Sunscreen lotion";
+		}
+		for (com.world.weather.entity.List l : list) {
 			for (Weather w : l.getWeather()) {
 				if (w.getMain().contains("Rain"))
 					return "Carry Umberella";
 			}
-			if (l.getMain().getTempMax() >= 313)
-				return "Use Sunscreen lotion";
 		}
 		return "mid Temp";
 	

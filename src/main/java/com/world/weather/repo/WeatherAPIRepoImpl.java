@@ -8,11 +8,11 @@ import com.world.weather.entity.WeatherData;
 
 @Repository
 public class WeatherAPIRepoImpl implements WeatherAPIRepo {
-	private String URL = "http://api.openweathermap.org/data/2.5/forecast?q=country&mode=json&appid=d2929e9483efc82c82c32ee7e02d563e";
+	private String URL = "https://samples.openweathermap.org/data/2.5/forecast?q=city&appid=b6907d289e10d714a6e88b30761fae22";
 
-	public WeatherData getForcast(String country) throws Exception {
+	public WeatherData getForcast(String city) throws Exception {
 		RestTemplate restTemplate = new RestTemplate();
-		WeatherData result = restTemplate.getForObject(URL.replace("country",country), WeatherData.class);
+		WeatherData result = restTemplate.getForObject(URL.replace("city",city), WeatherData.class);
 		return result;
 	}
 }
